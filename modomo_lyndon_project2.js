@@ -69,7 +69,7 @@ var catchWave = function (wavesInSet, surfer) {
 var slangVerse = function (phase1, phase2) { 
 	var phase;
 	
-	phase = "What do surfer's have such a strange language.  They say things like " + phase1 + ", " + phase2 + ", etc...";
+	phase = "Why do surfer's have such a strange language.  They say things like " + phase1 + ", " + phase2 + ", etc...";
 	return (phase);	
 };  //end slangVerse function
 
