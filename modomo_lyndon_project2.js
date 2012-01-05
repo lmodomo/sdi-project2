@@ -6,14 +6,14 @@
 var niceBeachDay = true,
 	sunnyDay = true,
 	surfsUp = true,
-	goodSurfDay,
-	numOfWavesInSet = 6,
-	waveCnt,
-	remainingWaveCnt,
-	surfers = ["Surfer1", "Surfer2", "Surfer3", "Surfer4"],
+	goodSurfDay = false,
+	numOfWavesInSet = 6,	//a set is the number of continous waves before a noticable break with no waves.
+	idealTimeToSurf = 14,  	//for this lab I am just using whole numbers (military time), 1 = 1:00, 2 = 2:00 ... 24 = 12:00 midnight, etc...
+	waitTime = 0,
+	remainingWaveCnt = 0,
+	surfers = ["Kelly Slater", "Duke Kahanamoku", "Sunny Garcia", "Taj Burrow"],
 	slang1 = "Surf\'s Up Brah",
-	slang2 = "Goofy footed",
-	surferTalk
+	slang2 = "Goofy footed"
 ;
 	
 
@@ -44,16 +44,37 @@ var idealDayToSurf = function (sunny, niceWaves) {
 var sets = function (continuousWaves) { 
 	var wavesInSet = continuousWaves,
 		i = 1,
-		numOfWaves = 0;
+		numOfWaves = 0,
+		percentOfWavesInSet = 0
+	;
 	
 	console.log ("(Number Function Task) Output From The While Loop Listed Below:");
 	while (i <= wavesInSet) {
 		numOfWaves++;
-		console.log ("Wave number " + i + " in the set of waves just passed by.");
+		// percentOfWavesInSet = ((numOfWaves / continuousWaves).toFixed(2)) * 100;
+		console.log ("Wave number " + i + " in the set of waves just passed by. " + percentOfWavesInSet + "% of the waves in the SET have now passed." );
 		i++;
 	};
 	return (numOfWaves);	
 };  //end sets function
+
+//(Number Function Task): Determine if it is the ideal time of day to go out and surf
+var surfTime = function (timeOfDay) { 
+	var	currentTime = 8,		//for this lab this should be less then "timeOfDay". Using whole numbers (military time), 1 = 1:00, 2 = 2:00 ... 24 = 12:00 midnight, etc...
+		timeRemaining = 0,
+		totalWaitTime = 0
+	;
+
+	console.log ("(Number Function Task) Output From The While Loop Listed Below:");
+	totalWaitTime = timeOfDay - currentTime;
+	while (currentTime < timeOfDay) {
+		timeRemaining = timeOfDay - currentTime;
+		console.log ("Current time is " + currentTime +":00.  The ideal time to surf is at " + timeOfDay + ":00.  There is " + timeRemaining + " hrs. remaining till SURF TIME!!!");
+		currentTime = currentTime + 1;
+	};
+	console.log ("Time to go SURFING!!!");
+	return (totalWaitTime);	
+};  //end surfTime function
 
 
 //(Array Function Task): Surfers to catch wave in set.  Returns the number of remaining waves.
@@ -61,10 +82,11 @@ var catchWave = function (wavesInSet, surfer) {
 	var wavesLeft = wavesInSet;
 	
 	console.log ("(Array Function Task): Output From the FOR Loop Listed Below:");
+	console.log ("There are " + wavesInSet + " waves in a set today");
 	for (var i = 0, j = surfer.length; i < j; i++) {
 		wavesLeft--;
-		console.log ("Wave number " + (i+1) + " in the set.  " + surfer[i] + " will catch this wave.");
-	};
+		console.log (surfer [i] + " catches, wave " + (i+1));
+	}
 	return (wavesLeft);	
 };  //end catchWave function
 
@@ -85,13 +107,12 @@ goodSurfDay = idealDayToSurf (sunnyDay, surfsUp);
 console.log ("(Boolean Function Task / Returned Value):Is it a good day to surf : ", goodSurfDay);
 
 //For Number Function Task
-waveCnt = sets(numOfWavesInSet);
-console.log ("(Number Number Task / Returned Value): The numbers of waves in a set: ", waveCnt);
+waitTime = surfTime(idealTimeToSurf);
+console.log ("The total hours the surfer's had to wait to go surfing: ", waitTime +" hrs.");
 
 //For Array Function Task
-remainingWaveCnt = catchWave(waveCnt, surfers);   //passing the previous returned value into this requirement
-console.log ("(Array Function Task / Returned Value):The numbers of waves remaining in the set: ", remainingWaveCnt);
+remainingWaveCnt = catchWave(numOfWavesInSet, surfers);
+console.log ("(Array Function Task / Returned Value):The number of waves remaining in the set: ", remainingWaveCnt);
 
 //For String Function Task
-surferTalk = slangVerse(slang1, slang2);
-console.log (surferTalk);
+console.log (slangVerse(slang1, slang2));
