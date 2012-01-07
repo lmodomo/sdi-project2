@@ -38,27 +38,6 @@ var idealDayToSurf = function (sunny, niceWaves) {
 	}
 };  //end idealDayToSurf function
 
-/*
-//INTENTIONALLY KEEPING THIS IN THIS FILE WHICH I MAY USE FOR LAB3
-//(Number Function Task): Count the number of waves in each set.  A set is x number
-//	of continuous waves before a temporary break with no waves.
-var sets = function (continuousWaves) { 
-	var wavesInSet = continuousWaves,
-		i = 1,
-		numOfWaves = 0,
-		percentOfWavesInSet = 0
-	;
-	
-	console.log ("(Number Function Task) Output From The While Loop Listed Below:");
-	while (i <= wavesInSet) {
-		numOfWaves++;
-		// percentOfWavesInSet = ((numOfWaves / continuousWaves).toFixed(2)) * 100;
-		console.log ("Wave number " + i + " in the set of waves just passed by. " + percentOfWavesInSet + "% of the waves in the SET have now passed." );
-		i++;
-	};
-	return (numOfWaves);	
-};  //end sets function
-*/
 
 //(Number Function Task): Determine if it is the ideal time of day to go out and surf
 var surfTime = function (timeOfDay) { 
