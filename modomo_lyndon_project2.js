@@ -46,7 +46,7 @@ var surfTime = function (timeOfDay) {
 		totalWaitTime = 0
 	;
 
-	console.log ("(Number Function Task) Output From The While Loop Listed Below:");
+	console.log ("(Number Function Task : Below is the Output From The While loop): Listing shows the number of hrs remaining before the surf is at it's best.");
 	totalWaitTime = timeOfDay - currentTime;
 	while (currentTime < timeOfDay) {
 		timeRemaining = timeOfDay - currentTime;
